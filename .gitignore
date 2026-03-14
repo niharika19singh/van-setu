@@ -1,0 +1,43 @@
+# Python
+venv/
+.venv/
+backend/venv/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# Secrets — never commit
+.env
+backend/.env
+frontend/.env.local
+frontend/.env.*.local
+
+# Frontend build output
+node_modules/
+dist/
+
+# Generated / runtime data
+backend/cache/
+backend/data/feedback/
+stats.json
+figures/
+
+# Raster files — exclude everything by default to avoid committing large GeoTIFFs
+# but explicitly allow the small project data files
+*.tif
+*.tiff
+!backend/data/delhi_ndvi_10m.tif
+!backend/data/delhi_lst_modis_daily_celsius.tif
+!delhi_ndvi_10m.tif
+!delhi_lst_modis_daily_celsius.tif
+
+# IDE / OS
+.DS_Store
+.agents/
+.tests/
+.vscode/
+*.swp
+
+# Vercel build
+.vercel/
