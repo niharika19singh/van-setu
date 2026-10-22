@@ -3,8 +3,8 @@
 #
 # Deploy Steps:
 #   1. Push this repo to GitHub
-#   2. Go to render.com → New → Blueprint
-#   3. Connect your GitHub repo → Render auto-reads this file
+#   2. Go to render.com -> New -> Blueprint
+#   3. Connect your GitHub repo -> Render auto-reads this file
 #   4. Set the env vars marked sync:false in the Render dashboard
 
 services:
@@ -20,12 +20,15 @@ services:
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.0
+      # Prune API key for AI What-If Corridor Ranking Explanations (Gemini provider)
+      - key: PRUNE_API_KEY
+        sync: false
+      - key: PRUNE_BASE_URL
+        value: https://api.withprune.com/v1
       # Optional: live AQI data (fallback static data used if missing)
-      # Get your key at https://aqicn.org/api/
       - key: OPENAQ_API_KEY
         sync: false
       # Optional: MongoDB Atlas URI for community corridor suggestions
-      # Format: mongodb+srv://user:pass@cluster.mongodb.net/vansetu
       - key: MONGODB_URI
         sync: false
       # Optional: Telegram Bot token for the community bot
